@@ -75,7 +75,7 @@ def video_information(v_id):
             f=''
             for i in s:
                 if i.isnumeric():
-                    f=f+1
+                    f=f+i
                 else:
                     if f:
                         l.append(f)
@@ -86,7 +86,7 @@ def video_information(v_id):
                 l.insert(1,'00')
             if "S" not in s:
                 l.insert(-1,'00')
-        duration=':'.join(map(str,l))                                
+        duration=':'.join(l)                                
         video_info={"videoid":item['id'],
                              'channel_id':item['snippet']['channelId'],
                              'channel_name':item['snippet']['channelTitle'],
