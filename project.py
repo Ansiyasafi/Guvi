@@ -530,7 +530,7 @@ elif  Questions=="8.The name of the channel that are published in the year 2022"
     st.write(df8)    
 
 elif  Questions=="9.The duration of all videos in a channel and their channel name":
-    query9="""SELECT channel_name as channelname,AVG(duration) as averageduration FROM videoinfo group by channel_name"""
+    query9="""SELECT channel_name as channelname,SEC_TO_TIME(AVG(TIME_TO_SEC(duration))) as averageduration FROM videoinfo group by channel_name"""
     cursor.execute(query9)
     t9=cursor.fetchall()
     df9=pd.DataFrame(t9,columns=["channel_name","average_duration"])
